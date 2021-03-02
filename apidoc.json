@@ -1,0 +1,5 @@
+{
+  "name": "Project template",
+  "description": "Project template api doc",
+  "order": ["Authentication", "AuthenticationLogin", "AuthenticationApp", "AuthenticationRefresh", "Users", "UsersCreate", "UsersSetPassword", "UsersMe", "Apps", "AppsCreate", "Healthcheck"]
+}

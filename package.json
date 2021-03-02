@@ -1,0 +1,67 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "Lacle app back",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
+    "test": "mocha --recursive test/",
+    "lint": "eslint --fix --config .eslintrc.js .",
+    "version": "echo $npm_package_version",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|css|md|vue)\"",
+    "generate:doc:dev": "apidoc -e node_modules -i app -o doc --private true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomainDECOSTER/rom2.git"
+  },
+  "author": "RomainDECOSTER <romain.decoster@pm.me>",
+  "license": "ISC",
+  "homepage": "https://github.com/RomainDECOSTER/rom2",
+  "devDependencies": {
+    "apidoc": "^0.25.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-mocha": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "mocha": "^6.2.0",
+    "prettier": "^1.19.1",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-jwt-permissions": "^1.3.3",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^5.10.11",
+    "mongoose-deep-populate": "^3.2.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "winston": "^3.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(js)": [
+      "eslint --fix"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write"
+    ]
+  }
+}

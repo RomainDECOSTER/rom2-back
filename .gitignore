@@ -1,0 +1,10 @@
+node_modules/
+config/rsa-keys
+doc/
+
+.DS_Store
+.env
+.env.dev
+.env.prod
+.vscode
+dump.rdb
