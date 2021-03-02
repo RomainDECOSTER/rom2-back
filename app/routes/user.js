@@ -81,7 +81,7 @@ module.exports = (router, passport) => {
    * @apiError (401) Unauthorized Unauthorized
    * @apiError (500) ServerInternalError Server error
    */
-  router.get('/me', passport.accessTokenStrategy, user.me);
+  router.get('/users/me', passport.accessTokenStrategy, user.me);
 
   router.get('/users', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_READ), user.find);
   router.put('/users/:id', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_WRITE), user.update);
