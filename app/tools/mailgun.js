@@ -1,7 +1,7 @@
 const ejs = require('ejs');
 const Mailgun = require('mailgun-js');
 
-const mailgunConfig = require('../../config/mailgun');
+const mailgunConfig = require('config/mailgun');
 
 const mailgun = new Mailgun({
   apiKey: mailgunConfig.MAILGUN_API_KEY,

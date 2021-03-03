@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const { errors } = require('../../config/codes');
+const { errors } = require('config/codes');
 
 const { ObjectId } = mongoose.Types;
 

@@ -44,6 +44,7 @@
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mailgun-js": "^0.22.0",
+    "module-alias": "^2.2.2",
     "mongoose": "^5.10.11",
     "mongoose-deep-populate": "^3.2.0",
     "passport": "^0.4.1",
@@ -63,5 +64,10 @@
     "*.+(json|css|md)": [
       "prettier --write"
     ]
+  },
+  "_moduleAliases": {
+    "app": "app/",
+    "db": "db/",
+    "config": "config/"
   }
 }

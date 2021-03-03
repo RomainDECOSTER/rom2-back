@@ -1,7 +1,7 @@
 const passport = require('passport');
 
-const logger = require('../tools/logger');
-const { errors } = require('../../config/codes');
+const logger = require('app/tools/logger');
+const { errors } = require('config/codes');
 
 function parseError(err, info, res) {
   logger.error('authentication failed', errors.server.AUTHENTICATION_FAILED, { err });

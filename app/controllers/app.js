@@ -1,7 +1,7 @@
-const { errors } = require('../../config/codes');
-const { app: AppModel } = require('../models');
-const controllerTool = require('../tools/controller');
-const logger = require('../tools/logger');
+const { errors } = require('config/codes');
+const { app: AppModel } = require('app/models');
+const controllerTool = require('app/tools/controller');
+const logger = require('app/tools/logger');
 
 module.exports = {
   createNewApp: (req, res) => {

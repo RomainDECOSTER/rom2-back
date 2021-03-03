@@ -1,6 +1,6 @@
-const PermissionGuard = require('../../config/guard');
-const SCOPE_PERMISSION = require('../../config/scopes');
-const user = require('../controllers/user');
+const PermissionGuard = require('config/guard');
+const SCOPE_PERMISSION = require('config/scopes');
+const user = require('app/controllers/user');
 
 module.exports = (router, passport) => {
   /**

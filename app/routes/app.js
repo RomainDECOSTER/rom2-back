@@ -1,4 +1,4 @@
-const { app } = require('../controllers');
+const { app } = require('app/controllers');
 
 module.exports = (router, passport) => {
   /**
