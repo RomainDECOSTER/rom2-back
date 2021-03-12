@@ -102,7 +102,7 @@ module.exports = {
 
     const { id } = req.params;
 
-    return CampaignModel.findOneAndDelete(id)
+    return CampaignModel.findByIdAndDelete(id)
       .then(doc => {
         if (doc === null) {
           return logger.logAndRespond(res, errors.api.NotFound);
