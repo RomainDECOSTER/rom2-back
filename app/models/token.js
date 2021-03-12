@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 
-const { mongoDatabase } = require('../../db/');
-const config = require('../../config/application');
+const { mongoDatabase } = require('db');
+const config = require('config/application');
 
 const MongooseSchema = mongoose.Schema;
 const MongoObjectId = MongooseSchema.Types.ObjectId;

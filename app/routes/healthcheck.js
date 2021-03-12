@@ -1,4 +1,4 @@
-const healthcheckController = require('../controllers').healthcheck;
+const healthcheckController = require('app/controllers').healthcheck;
 
 module.exports = router => {
   /**

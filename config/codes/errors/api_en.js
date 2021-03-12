@@ -21,4 +21,5 @@ module.exports = {
   InvalidBodyFields: error(422, 'InvalidBodyFields', 'Invalid body fields.'),
   UserNotFound: error(422, 'UserNotFound', 'No corresponding user was found in our records.'),
   UserAccountNotActive: error(422, 'UserAccountNotActive', 'User account is not active'),
+  NotFound: error(422, 'NotFound', 'No corresponding records was found in our records.'),
 };

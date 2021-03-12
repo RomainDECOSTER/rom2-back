@@ -1,15 +1,16 @@
+require('module-alias/register');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const passport = require('./config/passport');
-const initRouter = require('./app/routes');
-const logger = require('./app/tools/logger');
-const { errors, infos } = require('./config/codes');
+const passport = require('config/passport');
+const initRouter = require('app/routes');
+const logger = require('app/tools/logger');
+const { errors, infos } = require('config/codes');
 
 // Init Express
 const app = express();
-app.config = require('./config/application');
+app.config = require('config/application');
 
 /* Body Parser Initialization */
 app.use(bodyParser.json());

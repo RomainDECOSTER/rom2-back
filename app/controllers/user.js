@@ -1,7 +1,7 @@
-const { errors } = require('../../config/codes');
-const { user: UserModel } = require('../models');
-const controllerTools = require('../tools/controller');
-const logger = require('../tools/logger');
+const { errors } = require('config/codes');
+const { user: UserModel } = require('app/models');
+const controllerTools = require('app/tools/controller');
+const logger = require('app/tools/logger');
 
 module.exports = {
   createNewUser: (req, res) => {

@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { errors } = require('../../config/codes/');
+const { errors } = require('config/codes/');
 
 const myFormat = winston.format.printf(({ timestamp, level, message, metadata }) => {
   return `${timestamp} - ${level}: ${message} entity=${metadata.entity}, code=${metadata.code}, data=${JSON.stringify(metadata.data)}, details=${JSON.stringify(metadata.details)}`;

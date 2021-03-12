@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const config = require('../config/application');
-const logger = require('../app/tools/logger');
-const { errors, infos } = require('../config/codes');
+const config = require('config/application');
+const logger = require('app/tools/logger');
+const { errors, infos } = require('config/codes');
 
 mongoose.Promise = global.Promise;
 

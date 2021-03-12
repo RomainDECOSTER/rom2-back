@@ -4,11 +4,11 @@ const JWTstrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 const fs = require('fs');
 
-const config = require('./application');
-const models = require('../app/models');
+const models = require('app/models');
+const logger = require('app/tools/logger');
+const { errors } = require('config/codes');
 const Status = require('./enum/status');
-const logger = require('../app/tools/logger');
-const { errors } = require('../config/codes');
+const config = require('./application');
 
 function tokenStrategy(type) {
   return (req, res, next) => {

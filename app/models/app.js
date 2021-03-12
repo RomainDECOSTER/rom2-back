@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
-const { mongoDatabase } = require('../../db');
-const status = require('../../config/enum/status');
+const { mongoDatabase } = require('db');
+const status = require('config/enum/status');
 const TokenModel = require('./token');
 
 const MongooseSchema = mongoose.Schema;

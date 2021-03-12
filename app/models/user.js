@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
-const { mongoDatabase } = require('../../db');
-const status = require('../../config/enum/status');
+const { mongoDatabase } = require('db');
+const status = require('config/enum/status');
+const config = require('config/application');
+const mailgunConfig = require('config/mailgun');
+const { EMAIL_SENDING_ERROR } = require('config/codes/errors/server');
+const mailgun = require('app/tools/mailgun');
+const logger = require('app/tools/logger');
 const TokenModel = require('./token');
-const config = require('../../config/application');
-const mailgunConfig = require('../../config/mailgun');
-const mailgun = require('../tools/mailgun');
-const logger = require('../tools/logger');
-const { EMAIL_SENDING_ERROR } = require('../../config/codes/errors/server');
 
 const MongooseSchema = mongoose.Schema;
 const MongoObjectId = MongooseSchema.Types.ObjectId;

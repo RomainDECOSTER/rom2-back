@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { mongoDatabase } = require('../../db');
+const { mongoDatabase } = require('db');
 
 class WorkshopSchema {
   static getSchema() {
