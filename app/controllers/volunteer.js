@@ -5,7 +5,12 @@ const errors = require('config/codes/errors');
 
 module.exports = {
   list: (req, res) => {
-    return Model.find()
+    try {
+      controllerTool.parseRequiredQuery(req);
+    } catch (error) {
+      return logger.logAndRespond(res, error);
+    }
+    return Model.find({ campaign: req.query.campaign })
       .select('general_information.mobile general_information.first_name general_information.last_name general_information.email')
       .lean()
       .then(docs => {

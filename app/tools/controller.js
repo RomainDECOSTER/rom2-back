@@ -17,6 +17,12 @@ const controllerTool = {
     }
   },
 
+  parseRequiredQuery: req => {
+    if (req.query === undefined || req.query.campaign === undefined) {
+      throw errors.api.InvalidQueryFields;
+    }
+  },
+
   objectIdValidator: element => ObjectId.isValid(element) === true,
 
   parseBodyFieldBool: (field, required, requiredInModel) => {

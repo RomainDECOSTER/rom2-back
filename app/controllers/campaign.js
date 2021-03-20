@@ -6,6 +6,7 @@ const errors = require('config/codes/errors');
 module.exports = {
   list: (req, res) => {
     return CampaignModel.find()
+      .sort({ _id: -1 })
       .lean()
       .then(docs => {
         return res.json(docs);

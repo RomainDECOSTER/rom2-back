@@ -19,6 +19,7 @@ module.exports = {
   EmailAlreadyTaken: error(422, 'EmailAlreadyTaken', 'Email address is already taken.'),
   AppIdAlreadyTaken: error(422, 'AppIdAlreadyTaken', 'App id address is already taken.'),
   InvalidBodyFields: error(422, 'InvalidBodyFields', 'Invalid body fields.'),
+  InvalidQueryFields: error(422, 'InvalidQueryFields', 'Invalid query fields.'),
   UserNotFound: error(422, 'UserNotFound', 'No corresponding user was found in our records.'),
   UserAccountNotActive: error(422, 'UserAccountNotActive', 'User account is not active'),
   NotFound: error(422, 'NotFound', 'No corresponding records was found in our records.'),
