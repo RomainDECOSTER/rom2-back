@@ -14,6 +14,7 @@ const StudentSchema = new mongoose.Schema(
       required: true,
       default: true,
     },
+    uuid: { type: mongoose.Schema.Types.String },
     registration_information: { type: common.RegistrationSchema },
     general_information: { type: common.GeneralInformationSchema },
     availabilities_information: { type: [common.GeneralAvailabilitiesSchema] },

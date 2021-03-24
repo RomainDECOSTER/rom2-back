@@ -2,6 +2,7 @@ const { student: Model } = require('app/models');
 const controllerTool = require('app/tools/controller');
 const logger = require('app/tools/logger');
 const errors = require('config/codes/errors');
+const uuid = require('uuid');
 
 module.exports = {
   list: (req, res) => {
@@ -45,8 +46,9 @@ module.exports = {
     } catch (err) {
       return logger.logAndRespond(res, err);
     }
-
-    return Model.create(req.body)
+    const fields = { ...req.body };
+    fields.uuid = uuid.v4();
+    return Model.create(fields)
       .then(() => {
         return res.status(204).json({});
       })
