@@ -5,6 +5,8 @@ const campaign = require('./campaign');
 const student = require('./student/StudentSchema');
 const volunteer = require('./volunteer/VolunteerSchema');
 const workshop = require('./WorkshopSchema');
+const studentHistory = require('./student/StudentHistory');
+const volunteerHistory = require('./volunteer/volunteerHistory');
 
 module.exports = {
   token,
@@ -14,4 +16,6 @@ module.exports = {
   student,
   volunteer,
   workshop,
+  studentHistory,
+  volunteerHistory,
 };

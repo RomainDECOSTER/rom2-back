@@ -28,4 +28,13 @@ const VoluteerSchema = new mongoose.Schema(
   },
 );
 
+VoluteerSchema.methods.export = function _export() {
+  const doc = {
+    ...this,
+  };
+  // eslint-disable-next-line no-underscore-dangle
+  doc._id = this.id;
+  return doc;
+};
+
 module.exports = mongoDatabase.model('Volunteer', VoluteerSchema);

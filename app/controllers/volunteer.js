@@ -1,8 +1,9 @@
-const { volunteer: Model } = require('app/models');
+const { volunteer: Model, volunteerHistory: VolunteerHistory } = require('app/models');
 const controllerTool = require('app/tools/controller');
 const logger = require('app/tools/logger');
 const errors = require('config/codes/errors');
 const uuid = require('uuid');
+const ACTIONS = require('app/enums/action');
 
 module.exports = {
   list: (req, res) => {
@@ -49,8 +50,15 @@ module.exports = {
     const fields = { ...req.body };
     fields.uuid = uuid.v4();
     return Model.create(fields)
-      .then(() => {
-        return res.status(204).json({});
+      .then(volunteer => {
+        return VolunteerHistory.create({ user: req.entity.id, action: ACTIONS.CREATE, volunteer: volunteer.export() })
+          .then(() => {
+            return res.status(204).json({});
+          })
+          .catch(err => {
+            logger.error('[Volunteer] create failed put in history', errors.server.MONGODB_ERROR, { err });
+            return logger.logAndRespond(res, err);
+          });
       })
       .catch(err => {
         logger.error('[Volunteer] create failed', errors.server.MONGODB_ERROR, { err });
@@ -67,12 +75,19 @@ module.exports = {
 
     const { id } = req.params;
 
-    return Model.findByIdAndUpdate(id, req.body)
+    return Model.findByIdAndUpdate(id, req.body, { new: true })
       .then(doc => {
         if (doc === null) {
           return logger.logAndRespond(res, errors.api.NotFound);
         }
-        return res.status(204).json({});
+        return VolunteerHistory.create({ user: req.entity.id, action: ACTIONS.UPDATE, volunteer: doc.export() })
+          .then(() => {
+            return res.status(204).json({});
+          })
+          .catch(err => {
+            logger.error('[Volunteer] update failed put in history', errors.server.MONGODB_ERROR, { err });
+            return logger.logAndRespond(res, err);
+          });
       })
       .catch(err => {
         logger.error('[Volunteer] update failed', errors.server.MONGODB_ERROR, { err });
@@ -93,7 +108,14 @@ module.exports = {
         if (doc === null) {
           return logger.logAndRespond(res, errors.api.NotFound);
         }
-        return res.status(204).json({});
+        return VolunteerHistory.create({ user: req.entity.id, action: ACTIONS.DELETE, volunteer: doc.export() })
+          .then(() => {
+            return res.status(204).json({});
+          })
+          .catch(err => {
+            logger.error('[Volunteer] delete failed put in hhistory', errors.server.MONGODB_ERROR, { err });
+            return logger.logAndRespond(res, err);
+          });
       })
       .catch(err => {
         logger.error('[Volunteer] delete failed', errors.server.MONGODB_ERROR, { err });
