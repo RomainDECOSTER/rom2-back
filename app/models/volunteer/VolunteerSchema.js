@@ -22,7 +22,6 @@ const VoluteerSchema = new mongoose.Schema(
     comment: { type: mongoose.Schema.Types.String },
     other_intervention: { type: mongoose.Schema.Types.String },
     campaign: { type: mongoose.Schema.Types.ObjectId, ref: 'Campaign' },
-    campaign_history: [{ type: mongoose.Schema.Types.Mixed, default: [] }],
   },
   {
     timestamps: true,

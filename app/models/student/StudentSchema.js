@@ -29,7 +29,6 @@ const StudentSchema = new mongoose.Schema(
     school: { type: SchoolSchema },
     comment: { type: String },
     campaign: { type: mongoose.Schema.Types.ObjectId, ref: 'Campaign' },
-    campaign_history: { type: mongoose.Schema.Types.Mixed },
   },
   {
     timestamps: true,
