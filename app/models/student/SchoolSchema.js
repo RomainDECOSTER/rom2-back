@@ -5,9 +5,11 @@ const MongooseSchema = mongoose.Schema;
 const SchoolSchema = new MongooseSchema(
   {
     school_path: { type: String },
-    courses_as: [{ type: String }],
+    name: { type: String },
+    subjet: [{ type: String }],
     comment: { type: String },
     school_name: { type: String },
+    school_comment: { type: String },
     level: { type: String },
     class_room: [{ type: String }],
     option1: { type: String },
