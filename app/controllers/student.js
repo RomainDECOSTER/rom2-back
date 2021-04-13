@@ -13,7 +13,7 @@ module.exports = {
       return logger.logAndRespond(res, error);
     }
     return Model.find({ campaign: req.query.campaign })
-      .select('general_information.mobile general_information.first_name general_information.last_name general_information.email')
+      .select('type general_information.mobile general_information.first_name general_information.last_name general_information.email')
       .lean()
       .then(docs => {
         return res.json(docs);

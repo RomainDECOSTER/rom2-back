@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const FamilyRessourcesSchema = new mongoose.Schema(
   {
     student: { type: Boolean, default: false },
+    employment_asker: { type: Boolean, default: false },
     salary: { type: Boolean, default: false },
     plain_time: { type: Boolean, default: false },
     middle_time: { type: Boolean, default: false },
