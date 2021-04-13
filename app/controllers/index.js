@@ -7,6 +7,7 @@ const student = require('./student');
 const volunteer = require('./volunteer');
 const workshop = require('./workshop');
 const interview = require('./interview');
+const positionedWorkshop = require('./positionedWorkshop');
 
 module.exports = {
   authentication,
@@ -18,4 +19,5 @@ module.exports = {
   volunteer,
   workshop,
   interview,
+  positionedWorkshop,
 };

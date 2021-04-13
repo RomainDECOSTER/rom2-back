@@ -8,6 +8,7 @@ const workshop = require('./WorkshopSchema');
 const studentHistory = require('./student/StudentHistory');
 const volunteerHistory = require('./volunteer/volunteerHistory');
 const interview = require('./interview');
+const positionedWorkshop = require('./PositionedWorkshop');
 
 module.exports = {
   token,
@@ -20,4 +21,5 @@ module.exports = {
   studentHistory,
   volunteerHistory,
   interview,
+  positionedWorkshop,
 };

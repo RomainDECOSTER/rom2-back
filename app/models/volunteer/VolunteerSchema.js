@@ -18,7 +18,7 @@ const VoluteerSchema = new mongoose.Schema(
     proposed_subject: [{ type: ProposedSubectSchema }],
     family_ressources: { type: common.FamilyRessourcesSchema },
     life_state: { type: StateSchema },
-    workshops: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workshop' }],
+    workshop: { type: common.WorkshopSchema },
     comment: { type: mongoose.Schema.Types.String },
     other_intervention: { type: mongoose.Schema.Types.String },
     campaign: { type: mongoose.Schema.Types.ObjectId, ref: 'Campaign' },
