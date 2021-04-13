@@ -1,3 +1,4 @@
+const WorkshopSchema = require('./WorkshopSchema');
 const FamilyRessourcesSchema = require('./FamilyRessourcesSchema');
 const GeneralAvailabilitiesSchema = require('./GeneralAvailabilitiesSchema');
 const GeneralInformationSchema = require('./GeneralInformationSchema');
@@ -8,4 +9,5 @@ module.exports = {
   GeneralAvailabilitiesSchema,
   GeneralInformationSchema,
   RegistrationSchema,
+  WorkshopSchema,
 };

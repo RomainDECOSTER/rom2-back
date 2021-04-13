@@ -7,6 +7,7 @@ const volunteer = require('./volunteer/VolunteerSchema');
 const workshop = require('./WorkshopSchema');
 const studentHistory = require('./student/StudentHistory');
 const volunteerHistory = require('./volunteer/volunteerHistory');
+const positionedWorkshop = require('./PositionedWorkshop');
 
 module.exports = {
   token,
@@ -18,4 +19,5 @@ module.exports = {
   workshop,
   studentHistory,
   volunteerHistory,
+  positionedWorkshop,
 };
