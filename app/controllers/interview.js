@@ -5,7 +5,8 @@ const errors = require('config/codes/errors');
 
 module.exports = {
   list: (req, res) => {
-    return Model.find({ campaign: req.query.campaign })
+    const fields = [{ name: 'campaign', type: 'string', required: true }];
+    return Model.find(controllerTool.parseFields(req.query, fields))
       .lean()
       .then(docs => {
         return res.json(docs);
@@ -16,13 +17,11 @@ module.exports = {
       });
   },
   getInterviewedList: (req, res) => {
-    let filter = {};
-    if (req.query.campaign) {
-      filter = { interviewed_id: req.query.interviewed_id, campaign: req.query.campaign };
-    } else {
-      filter = { interviewed_id: req.query.interviewed_id };
-    }
-    return Model.find(filter)
+    const fields = [
+      { name: 'interview_id', type: 'string', required: true },
+      { name: 'campaign', type: 'string' },
+    ];
+    return Model.find(controllerTool.parseFields(req.query, fields))
       .lean()
       .then(docs => {
         return res.json(docs);
