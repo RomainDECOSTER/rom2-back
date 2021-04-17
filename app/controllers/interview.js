@@ -6,7 +6,13 @@ const errors = require('config/codes/errors');
 module.exports = {
   list: (req, res) => {
     const fields = [{ name: 'campaign', type: 'string', required: true }];
-    return Model.find(controllerTool.parseFields(req.query, fields))
+    let fieldsToSend = {};
+    try {
+      fieldsToSend = controllerTool.parseFields(req.query, fields);
+    } catch (error) {
+      return logger.logAndRespond(res, error);
+    }
+    return Model.find(fieldsToSend)
       .lean()
       .then(docs => {
         return res.json(docs);
@@ -18,10 +24,16 @@ module.exports = {
   },
   getInterviewedList: (req, res) => {
     const fields = [
-      { name: 'interview_id', type: 'string', required: true },
+      { name: 'interviewed_id', type: 'string', required: true },
       { name: 'campaign', type: 'string' },
     ];
-    return Model.find(controllerTool.parseFields(req.query, fields))
+    let fieldsToSend = {};
+    try {
+      fieldsToSend = controllerTool.parseFields(req.query, fields);
+    } catch (error) {
+      return logger.logAndRespond(res, error);
+    }
+    return Model.find(fieldsToSend)
       .lean()
       .then(docs => {
         return res.json(docs);

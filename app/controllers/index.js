@@ -6,6 +6,7 @@ const campaign = require('./campaign');
 const student = require('./student');
 const volunteer = require('./volunteer');
 const workshop = require('./workshop');
+const interview = require('./interview');
 
 module.exports = {
   authentication,
@@ -16,4 +17,5 @@ module.exports = {
   student,
   volunteer,
   workshop,
+  interview,
 };

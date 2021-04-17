@@ -15,7 +15,6 @@ module.exports = {
       { name: 'firstname', required: true, type: 'string' },
       { name: 'lastname', required: true, type: 'string' },
       { name: 'email', required: true, type: 'string' },
-      { name: 'scopes', require: true, type: 'array' },
     ];
 
     let userToAdd;
@@ -103,10 +102,9 @@ module.exports = {
     }
 
     const fields = [
-      { name: 'firstname', required: true, type: 'string' },
-      { name: 'lastname', required: true, type: 'string' },
-      { name: 'email', required: true, type: 'string' },
-      { name: 'scopes', require: true, type: 'array' },
+      { name: 'firstname', nonNull: true, type: 'string' },
+      { name: 'lastname', nonNull: true, type: 'string' },
+      { name: 'email', nonNull: true, type: 'string' },
     ];
 
     let fieldsToEdit;
