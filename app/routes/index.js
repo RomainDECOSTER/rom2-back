@@ -5,6 +5,7 @@ const campaign = require('./campaign');
 const student = require('./student');
 const volunteer = require('./volunteer');
 const workshop = require('./workshop');
+const interview = require('./interview');
 
 module.exports = (router, passport) => {
   authentication(router, passport);
@@ -14,4 +15,5 @@ module.exports = (router, passport) => {
   student(router, passport);
   volunteer(router, passport);
   workshop(router, passport);
+  interview(router, passport);
 };
