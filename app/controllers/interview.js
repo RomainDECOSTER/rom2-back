@@ -5,27 +5,9 @@ const errors = require('config/codes/errors');
 
 module.exports = {
   list: (req, res) => {
-    const fields = [{ name: 'campaign', type: 'string', required: true }];
-    let fieldsToSend = {};
-    try {
-      fieldsToSend = controllerTool.parseFields(req.query, fields);
-    } catch (error) {
-      return logger.logAndRespond(res, error);
-    }
-    return Model.find(fieldsToSend)
-      .lean()
-      .then(docs => {
-        return res.json(docs);
-      })
-      .catch(err => {
-        logger.error('[Interview] list failed', errors.server.MONGODB_ERROR, { err });
-        return logger.logAndRespond(res, err);
-      });
-  },
-  getInterviewedList: (req, res) => {
     const fields = [
-      { name: 'interviewed_id', type: 'string', required: true },
-      { name: 'campaign', type: 'string' },
+      { name: 'interviewed_id', type: 'string' },
+      { name: 'campaign', type: 'string', required: true },
     ];
     let fieldsToSend = {};
     try {
@@ -39,7 +21,7 @@ module.exports = {
         return res.json(docs);
       })
       .catch(err => {
-        logger.error('[Interview] Interviewed list failed', errors.server.MONGODB_ERROR, { err });
+        logger.error('[Interview] list failed', errors.server.MONGODB_ERROR, { err });
         return logger.logAndRespond(res, err);
       });
   },
