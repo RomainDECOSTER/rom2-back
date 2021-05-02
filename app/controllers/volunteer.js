@@ -48,7 +48,9 @@ module.exports = {
       return logger.logAndRespond(res, err);
     }
     const fields = { ...req.body };
-    fields.uuid = uuid.v4();
+    if (fields.uuid === undefined) {
+      fields.uuid = uuid.v4();
+    }
     return Model.create(fields)
       .then(volunteer => {
         return VolunteerHistory.create({ user: req.entity.id, action: ACTIONS.CREATE, volunteer: volunteer.export() })
