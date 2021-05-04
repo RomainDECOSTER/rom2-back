@@ -29,7 +29,7 @@ const FamilyRessourcesSchema = new mongoose.Schema(
     pre_retirement: { type: Boolean },
     retirement: { type: Boolean },
     work_name: { type: String },
-    parentWork: { type: String },
+    parent_work: { type: String },
     retirement_number: { type: String },
     has_children: { type: Boolean },
     CDD: { type: Boolean, default: false },
