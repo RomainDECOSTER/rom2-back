@@ -6,7 +6,8 @@ const WorkshopManagmentSchema = new MongooseSchema(
   {
     positioned_workshop: { type: MongooseSchema.Types.ObjectId, ref: 'PositionedWorkshop' },
     accepted: { type: Boolean, default: false },
-    accepted_date: { type: Date },
+    rejected: { type: Boolean, default: false },
+    date: { type: Date },
     present: { type: Boolean, default: false },
   },
   {
