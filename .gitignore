@@ -6,5 +6,6 @@ doc/
 .env
 .env.dev
 .env.prod
+.env-old
 .vscode
 dump.rdb

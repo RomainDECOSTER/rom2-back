@@ -89,9 +89,11 @@ module.exports = {
 
     return UserModel.findByIdAndDelete(req.params.id)
       .then(() => {
-        return res.send(204).send();
+        return res.status(204).send();
       })
-      .catch(err => logger.logAndRespond(res, err));
+      .catch(err => {
+        return logger.logAndRespond(res, err);
+      });
   },
   update: (req, res) => {
     try {

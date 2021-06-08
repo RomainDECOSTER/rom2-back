@@ -14,12 +14,14 @@ function getEnvVar(name, defaultValue = '', formatter = v => v) {
 const MAILGUN_API_KEY = getEnvVar('MAILGUN_API_KEY', '');
 const MAILGUN_DOMAIN = getEnvVar('MAILGUN_DOMAIN', 'api.lacle.fr');
 const MAILGUN_SENDER = getEnvVar('MAILGUN_SENDER', 'Lacle <cest@lacle.fr>');
+const MAILGUN_USERNAME = getEnvVar('MAILGUN_USERNAME', 'api');
 
 const mailgunConfig = {
   mailTemplates,
   MAILGUN_API_KEY,
   MAILGUN_DOMAIN,
   MAILGUN_SENDER,
+  MAILGUN_USERNAME,
 };
 
 module.exports = mailgunConfig;

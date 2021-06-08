@@ -1,11 +1,15 @@
 const ejs = require('ejs');
-const Mailgun = require('mailgun-js');
+const Mailgun = require('mailgun.js');
+const formData = require('form-data');
 
 const mailgunConfig = require('config/mailgun');
 
-const mailgun = new Mailgun({
-  apiKey: mailgunConfig.MAILGUN_API_KEY,
-  domain: mailgunConfig.MAILGUN_DOMAIN,
+const MG = new Mailgun(formData);
+
+const mailgun = MG.client({
+  key: mailgunConfig.MAILGUN_API_KEY,
+  username: mailgunConfig.MAILGUN_USERNAME,
+  url: 'https://api.eu.mailgun.net',
 });
 
 // returns a Promise containing the email html and subject
@@ -51,9 +55,8 @@ function sendEmail(data) {
       .then(content => {
         finalData.subject = content.subject;
         finalData.html = content.html;
-        mailgun
-          .messages()
-          .send(finalData)
+        mailgun.messages
+          .create(mailgunConfig.MAILGUN_DOMAIN, finalData)
           .then(res => {
             resolve(res);
           })

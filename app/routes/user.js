@@ -1,5 +1,3 @@
-const PermissionGuard = require('config/guard');
-const SCOPE_PERMISSION = require('config/scopes');
 const user = require('app/controllers/user');
 
 module.exports = (router, passport) => {
@@ -33,7 +31,7 @@ module.exports = (router, passport) => {
    * @apiError (422) EmailAlreadyTaken Email address is already taken
    * @apiError (500) ServerInternalError Server error
    */
-  router.post('/users', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_WRITE), user.createNewUser);
+  router.post('/users', passport.accessTokenStrategy, user.createNewUser);
 
   /**
    * @api {post} /users/password Set password
@@ -83,8 +81,8 @@ module.exports = (router, passport) => {
    */
   router.get('/users/me', passport.accessTokenStrategy, user.me);
 
-  router.get('/users', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_READ), user.find);
-  router.put('/users/:id', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_WRITE), user.update);
-  router.delete('/users/:id', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_DELETE), user.delete);
-  router.get('/users/:id', passport.accessTokenStrategy, PermissionGuard.check(SCOPE_PERMISSION.USERS_READ), user.retrieved);
+  router.get('/users', passport.accessTokenStrategy, user.find);
+  router.put('/users/:id', passport.accessTokenStrategy, user.update);
+  router.delete('/users/:id', passport.accessTokenStrategy, user.delete);
+  router.get('/users/:id', passport.accessTokenStrategy, user.retrieved);
 };
