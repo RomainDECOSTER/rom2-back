@@ -21,7 +21,7 @@ function getMailContent(data) {
       if (data.template.html) {
         content.html = data.template.html;
       } else {
-        const lang = data.lang !== undefined ? data.lang : 'en';
+        const lang = data.lang !== undefined ? data.lang : 'fr';
         const filePath = `config/templates/${lang}/${data.template.file}`;
         ejs.renderFile(filePath, data.data, {}, (err, html) => {
           if (err) {
