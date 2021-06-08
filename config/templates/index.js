@@ -1,6 +1,6 @@
 const templates = {
   CONFIRM_PASSWORD: {
-    subject: 'Lacle',
+    subject: 'Bienvenue sur FRom3.0',
     file: 'set_password.ejs',
   },
 };

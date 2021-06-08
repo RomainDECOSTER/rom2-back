@@ -183,7 +183,7 @@ UserModel.methods.sendConfirmationEmail = function sendConfirmationEmail() {
     from: mailgunConfig.MAILGUN_SENDER,
     to: this.email,
     template: mailgunConfig.mailTemplates.CONFIRM_PASSWORD,
-    lang: 'en',
+    lang: 'fr',
     data: {
       confirm_link: confirmationLink,
       name: this.firstname,
